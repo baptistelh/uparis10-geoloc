@@ -8,12 +8,10 @@ import play.db.jpa.*;
 @Entity
 public class Utilisateur extends Model {
  
-    public String prenom;
-    public String nom;
+    public String pseudo;
     
-    public Utilisateur(String prenom, String nom) {
-    	this.prenom = prenom;
-	this.nom = nom;
+    public Utilisateur(String pseudo) {
+    	this.pseudo = pseudo;
     }
  
 }
