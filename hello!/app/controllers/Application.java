@@ -13,7 +13,7 @@ public class Application extends Controller {
         render();
     }*/
     public static void index() {
-	Utilisateur u = Utilisateur.find("byPrenom","flo").first();
+	Utilisateur u = Utilisateur.find("byPseudo","daVay").first();
 	render(u);
     }
 }
