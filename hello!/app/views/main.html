@@ -9,16 +9,25 @@
         <!-- Boostrap CSS -->
         <link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap.min.css'}">
         <link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap-responsive.min.css'}">
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" media="screen" href="@{'/public/leaflet/leaflet.css'}">
+        <!--[if lte IE 8]>
+     		<link rel="stylesheet" href="@{'/public/leaflet/leaflet.ie.css'}" />
+ 		<![endif]-->
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <!-- JQuery JS -->
         <script src="@{'/public/javascripts/jquery-1.9.1.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         <!-- Boostrap JS -->
         <script src="@{'/public/bootstrap/js/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <!-- Leaflet JS -->
+        <script src="@{'/public/leaflet/leaflet.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
 		<style>
 			body {
 				padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 			}
+			#map { height: 180px; }
 		</style>
     </head>
    <body>
