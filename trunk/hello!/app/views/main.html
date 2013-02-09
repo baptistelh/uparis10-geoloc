@@ -3,11 +3,17 @@
 <html>
     <head>
         <title>#{get 'title' /}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="${_response_encoding}">
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <!-- Boostrap CSS -->
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at('/public/bootstrap/css/boostrap.min.css')">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at('/public/bootstrap/css/boostrap-responsive.min.css')">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.9.1.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <!-- Boostrap JS -->
+        <script src="@routes.Assets.at('/public/bootstrap/js/boostrap.min.js')" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
     </head>
    <body>
