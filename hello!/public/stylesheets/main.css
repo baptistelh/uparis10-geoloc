@@ -11,3 +11,12 @@ html, body {
 	width:100%;
 	height:100%;
 }
+
+/* Responsive design tablette puis smartphone */
+
+@media (max-width: 979px) {
+	#map {margin-top:-20px;}
+}
+@media (max-width: 767px) {
+    
+}
