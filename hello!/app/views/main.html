@@ -5,7 +5,6 @@
         <title>#{get 'title' /}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
         <!-- Boostrap CSS -->
         <link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap.min.css'}">
         <link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap-responsive.min.css'}">
@@ -14,6 +13,8 @@
         <!--[if lte IE 8]>
      		<link rel="stylesheet" href="@{'/public/leaflet/leaflet.ie.css'}" />
  		<![endif]-->
+ 		<!-- Main CSS -->
+ 		<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <!-- JQuery JS -->
@@ -26,7 +27,7 @@
     </head>
    <body>
 		<!-- Menu -->
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-inverse navbar-fixed-top hidden-phone">
 			<div class="navbar-inner">
 				<div class="container">
 					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">

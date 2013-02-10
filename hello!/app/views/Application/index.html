@@ -14,12 +14,18 @@
 	var marker = L.marker([48.903003, 2.215518]).addTo(map);
 	marker.bindPopup("<b>La fa&ccedil;onnerie!</b>").openPopup();
 	
+	
+	/* Dimensions de la map selon la présence de la menu-bar */
 	$(document).ready(function() {
         $.ajaxSetup({cache:false});
-        $('#map').css('height', ($(window).height() - 40));
+        if($(window).width() > 767) {
+        	$('#map').css('height', ($(window).height() - 40));
+        }
       });
 
-      $(window).resize(function () {
-        $('#map').css('height', ($(window).height() - 40));
-      }).resize();
+     $(window).resize(function () {
+    	 if($(window).width() > 767) {
+         	$('#map').css('height', ($(window).height() - 40));
+         }
+     }).resize();
 </script>
