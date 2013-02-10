@@ -1,8 +1,13 @@
-body {
-	padding: 0;
+html, body {
 	margin: 0;
-}
-
-html, body, #map {
+	padding: 0;
 	height: 100%;
+	width: 100%;
+	position: absolute;
+	overflow:hidden;
+}
+#map {
+	margin-top:40px;
+	width:100%;
+	height:100%;
 }
