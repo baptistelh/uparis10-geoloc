@@ -13,4 +13,13 @@
 	}).addTo(map);
 	var marker = L.marker([48.903003, 2.215518]).addTo(map);
 	marker.bindPopup("<b>La fa&ccedil;onnerie!</b>").openPopup();
+	
+	$(document).ready(function() {
+        $.ajaxSetup({cache:false});
+        $('#map').css('height', ($(window).height() - 40));
+      });
+
+      $(window).resize(function () {
+        $('#map').css('height', ($(window).height() - 40));
+      }).resize();
 </script>
