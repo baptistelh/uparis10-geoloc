@@ -12,10 +12,11 @@
 	    maxZoom: 19
 	}).addTo(map);
 	var marker = L.marker([48.903003, 2.215518]).addTo(map);
-	marker.bindPopup("<b>La fa&ccedil;onnerie!</b>").openPopup();
+	//marker.bindPopup("<b>La fa&ccedil;onnerie!</b>").openPopup();
+	marker.bindPopup("${u.mail}").openPopup();
+
 	
-	
-	/* Dimensions de la map selon la présence de la menu-bar */
+	/* Dimensions de la map selon la prï¿½sence de la menu-bar */
 	$(document).ready(function() {
         $.ajaxSetup({cache:false});
         if($(window).width() > 767) {
