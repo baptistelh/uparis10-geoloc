@@ -16,7 +16,7 @@ public class BatimentTest extends UnitTest{
     public void nomBatiment( ) {
 		
 		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
-        assertNotSame(bat.nom_bat, "");
+        assertNotSame(bat.nom_bat.trim(), "");
     }
 	
 	@Test
@@ -27,16 +27,44 @@ public class BatimentTest extends UnitTest{
     }
 	
 	@Test
-    public void latitudeBatiment( ) {
+    public void latitudeNullBatiment( ) {
 		
 		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
         assertNotNull(bat.latitude);
     }
 	
 	@Test
-    public void longitudeBatiment( ) {
+    public void latitudeMinBatiment( ) {
 		
 		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
-        assertNotNull(bat.longitude);
+        assertTrue(bat.latitude > 48);
+    }
+	
+	@Test
+    public void latitudeMaxBatiment( ) {
+		
+		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
+        assertTrue(bat.latitude < 49);
+    }
+	
+	@Test
+    public void longitudeNullBatiment( ) {
+		
+		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
+        assertNotNull(bat.latitude);
+    }
+	
+	@Test
+    public void longitudeMinBatiment( ) {
+		
+		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
+        assertTrue(bat.latitude > 1);
+    }
+	
+	@Test
+    public void longitudeMaxBatiment( ) {
+		
+		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
+        assertTrue(bat.latitude < 3);
     }
 }
