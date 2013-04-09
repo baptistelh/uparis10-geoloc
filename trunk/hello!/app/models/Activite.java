@@ -5,14 +5,13 @@ import javax.persistence.*;
 import play.db.jpa.*;
 
 @Entity
+@AttributeOverride(name = "id", column = @Column(name = "num_activite"))
 public class Activite extends Model {
-	
-	public Type_Activite type;
+
 	public Batiment batiment;
 	public String description;
 	
-	public Activite(Type_Activite type, Batiment batiment, String description) {
-		this.type = type;
+	public Activite(Batiment batiment, String description) {
 		this.batiment = batiment;
 		this.description = description;
 	}

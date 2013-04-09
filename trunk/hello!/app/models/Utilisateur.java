@@ -5,8 +5,9 @@ import javax.persistence.*;
 import play.db.jpa.*;
  
 @Entity
+@AttributeOverride(name = "id", column = @Column(name = "num_user"))
 public class Utilisateur extends Model {
-	
+
     public String pseudo;
     public String mdp;
     public String mail;
