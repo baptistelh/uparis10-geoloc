@@ -8,7 +8,6 @@ public class BatimentTest extends UnitTest{
 	
 	@Test
     public void surfaceBatiment( ) {
-		
 		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
         assertTrue(bat.surface> 0);
     }
@@ -21,9 +20,23 @@ public class BatimentTest extends UnitTest{
     }
 	
 	@Test
-    public void capaciteeBatiment( ) {
+    public void capaciteBatiment( ) {
 		
 		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
         assertTrue(bat.capacite> 0);
+    }
+	
+	@Test
+    public void latitudeBatiment( ) {
+		
+		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
+        assertNotNull(bat.latitude);
+    }
+	
+	@Test
+    public void longitudeBatiment( ) {
+		
+		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
+        assertNotNull(bat.longitude);
     }
 }
