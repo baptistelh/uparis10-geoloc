@@ -5,11 +5,11 @@ import javax.persistence.*;
 import play.db.jpa.*;
 
 @Entity
-public class TypeActivite extends Model {
+public class Type_Activite extends Model {
 	
 	public String desciption;
 
-	public TypeActivite(String desciption) {
+	public Type_Activite(String desciption) {
 		this.desciption = desciption;
 	}
 }
