@@ -6,14 +6,14 @@ import play.db.jpa.*;
 
 @Entity
 public class CommentaireActivite {
-	public Utilisateur user;
-	public Activite activite;
 	public String commentaire;
+	public int num_act;
+	public int num_user;
 	
-	public CommentaireActivite(Utilisateur user, Activite activite,
+	public CommentaireActivite(int user, int act,
 			String commentaire) {
-		this.user = user;
-		this.activite = activite;
+		this.num_user = user;
+		this.num_act = act;
 		this.commentaire = commentaire;
 	}
 }
