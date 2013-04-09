@@ -29,42 +29,42 @@ public class BatimentTest extends UnitTest{
 	@Test
     public void latitudeNullBatiment( ) {
 		
-		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
+		Batiment bat = new Batiment("batiment G", 2, 48.3, 4, 2);
         assertNotNull(bat.latitude);
     }
 	
 	@Test
     public void latitudeMinBatiment( ) {
 		
-		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
+		Batiment bat = new Batiment("batiment G", 2, 48.3, 4, 2);
         assertTrue(bat.latitude > 48);
     }
 	
 	@Test
     public void latitudeMaxBatiment( ) {
 		
-		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
+		Batiment bat = new Batiment("batiment G", 2, 48.3, 4, 2);
         assertTrue(bat.latitude < 49);
     }
 	
 	@Test
     public void longitudeNullBatiment( ) {
 		
-		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
-        assertNotNull(bat.latitude);
+		Batiment bat = new Batiment("batiment G", 2, 48.3, 4, 2);
+        assertNotNull(bat.longitude);
     }
 	
 	@Test
     public void longitudeMinBatiment( ) {
 		
-		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
-        assertTrue(bat.latitude > 1);
+		Batiment bat = new Batiment("batiment G", 2, 48.3, 4, 2);
+        assertTrue(bat.longitude > 1);
     }
 	
 	@Test
     public void longitudeMaxBatiment( ) {
 		
-		Batiment bat = new Batiment("batiment G", 14, 13, 4, 2);
-        assertTrue(bat.latitude < 3);
+		Batiment bat = new Batiment("batiment G", 2, 48.3, 4, 2);
+        assertTrue(bat.longitude < 3);
     }
 }
