@@ -5,15 +5,15 @@ import javax.persistence.*;
 import play.db.jpa.*;
 
 @Entity
-public class CommentaireActivite {
+public class CommentaireActivite extends Model {
+	public Utilisateur user;
+	public Activite activite;
 	public String commentaire;
-	public int num_act;
-	public int num_user;
 	
-	public CommentaireActivite(int user, int act,
+	public CommentaireActivite(Utilisateur user, Activite activite,
 			String commentaire) {
-		this.num_user = user;
-		this.num_act = act;
+		this.user = user;
+		this.activite = activite;
 		this.commentaire = commentaire;
 	}
 }
