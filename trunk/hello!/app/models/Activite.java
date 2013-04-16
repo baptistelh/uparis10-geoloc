@@ -7,12 +7,20 @@ import play.db.jpa.*;
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "num_activite"))
 public class Activite extends Model {
-
-	public Batiment batiment;
-	public String description;
 	
-	public Activite(Batiment batiment, String description) {
-		this.batiment = batiment;
+	//@ManyToOne
+	//public Batiment batiment;
+	public String description;
+
+	public Activite(String description) {
+		super();
 		this.description = description;
 	}
+	
+//	public Activite(Batiment batiment, String description) {
+//		this.batiment = batiment;
+//		this.description = description;
+//	}
+	
+	
 }
