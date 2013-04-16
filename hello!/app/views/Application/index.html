@@ -1,29 +1,49 @@
 #{extends 'main.html' /}
 #{set title:'Bienvenue sur Geoloc\'UPO' /}
+ 
+<!-- Modal -->
+<div id="details" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Bâtiment G</h3>
+	</div>
+	<div class="modal-body">
+		<p>L'UFR Segmi regroupe les trois départements d'économie, de gestion, de mathématiques et d'informatique de l'Université Paris Ouest - Nanterre La Défense.</p>
+		<br/>
+		<p>Plus de 4000 étudiants sont inscrits au sein de la soixantaine de formations proposées par l'UFR Segmi. Les cours sont réalisés par une centaine d'enseignants-chercheurs permanents et l'UFR est géré par une équipe administrative d'une trentaine de personnes.</p>
+		<div align="center"><img src="http://www.nanterrelaverte.fr/wp-content/uploads/2012/11/antennes_relais_Bouygues_SFR_batimentG_Nanterre-300x224.jpg"></div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Retour</button>
+	</div>
+</div>
 
 <div id="map"></div>
+
 <script type="text/javascript">
 	var map = L.map('map', {
 	    center: [48.904, 2.2135],
 	    zoom: 17
 	});
 	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		attribution: '<a href="http://www.hostedredmine.com/projects/geoloc-upo">Our Redmine</a>, proudly powered by <a href="http://www.hostedredmine.com">Hosted Redmine</a> - Map data &copy; OpenStreetMap contributors - Ta mère fait un getconf de ma LONG_BIT',
+		attribution: 'Map data &copy; OpenStreetMap contributors - <a href="http://www.hostedredmine.com/projects/geoloc-upo">Our Redmine</a>, proudly powered by <a href="http://www.hostedredmine.com">Hosted Redmine</a>',
 	    maxZoom: 19
 	}).addTo(map);
 	var marker = L.marker([48.903003, 2.215518]).addTo(map);
 	//marker.bindPopup("<b>1er marqueur (ouvert au chargement)</b>").openPopup();
 	marker.bindPopup(
-			"<b>B&acirc;timent G</b>"+
-			"<br/>UFR SEGMI"+
-			"<br/><br/>"+
-			"<a href=#>+ d'infos</a>"
+		"<b>B&acirc;timent G</b>"+
+		"<br/>UFR SEGMI"+
+		"<br/><br/>"+
+		"<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>"
+
+		
 			).openPopup();
 	var marker2 = L.marker([48.903173, 2.213418]).addTo(map);
 	marker2.bindPopup("<b>${u.mail}</b>");
-
+	map.locate({setView: true, maxZoom: 16});
 	
-	/* Dimensions de la map selon la pr�sence de la menu-bar */
+	/* Dimensions de la map selon la prï¿½sence de la menu-bar */
 	$(document).ready(function() {
         $.ajaxSetup({cache:false});
         if($(window).width() > 767) {
@@ -36,4 +56,9 @@
          	$('#map').css('height', ($(window).height() - 40));
          }
      }).resize();
+     
+	//Affichage de la fenêtre de détail lors du clic sur le bouton
+ 	$("button[id=detailsButton]").click(function () {
+ 		$('#details').modal('show');
+ 	});
 </script>
