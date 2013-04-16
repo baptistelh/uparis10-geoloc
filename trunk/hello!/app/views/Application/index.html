@@ -13,9 +13,14 @@
 	}).addTo(map);
 	var marker = L.marker([48.903003, 2.215518]).addTo(map);
 	//marker.bindPopup("<b>1er marqueur (ouvert au chargement)</b>").openPopup();
-	marker.bindPopup("<b>${u.mail}</b>").openPopup();
+	marker.bindPopup(
+			"<b>B&acirc;timent G</b>"+
+			"<br/>UFR SEGMI"+
+			"<br/><br/>"+
+			"<a href=#>+ d'infos</a>"
+			).openPopup();
 	var marker2 = L.marker([48.903173, 2.213418]).addTo(map);
-	marker2.bindPopup("<b>2eme marqueur (pas ouvert au chargement)</b>");
+	marker2.bindPopup("<b>${u.mail}</b>");
 
 	
 	/* Dimensions de la map selon la pr�sence de la menu-bar */
