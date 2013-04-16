@@ -36,12 +36,12 @@
 		"<br/>UFR SEGMI"+
 		"<br/><br/>"+
 		"<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>"
-
-		
 			).openPopup();
 	var marker2 = L.marker([48.903173, 2.213418]).addTo(map);
 	marker2.bindPopup("<b>${u.mail}</b>");
-	map.locate({setView: true, maxZoom: 16});
+	
+	/* Géolocalisation */
+	//map.locate({setView: true, maxZoom: 16});
 	
 	/* Dimensions de la map selon la prï¿½sence de la menu-bar */
 	$(document).ready(function() {
