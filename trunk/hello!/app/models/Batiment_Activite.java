@@ -29,4 +29,10 @@ public class Batiment_Activite extends Model{
 		batiment.activites.add(this);
 		activite.batiments.add(this);
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.batiment.toString()+" "+this.activite.toString();
+	}
 }
