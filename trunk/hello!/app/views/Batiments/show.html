@@ -4,18 +4,9 @@
 <div id="crudShow" class="${type.name}">
 
     <h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
-
-    <div class="objectForm">
-    #{form action:@save(object._key()), enctype:'multipart/form-data'}
-        #{crud.form}
-   	 #{crud.custom 'latitude'}
-        <label for="latitude">
-            &{'latitude'}
-        </label>
-        <input type="text"/>
-        
-        <div id="map"></div>
-        <script type="text/javascript">
+    
+	<div id="map" style="height:180px;width:180px;"></div>
+	    <script type="text/javascript">
 	var map = L.map('map', {
 	    center: [48.904, 2.2135],
 	    zoom: 17
@@ -25,8 +16,10 @@
 	    maxZoom: 19
 	}).addTo(map);
 	</script>
-    #{/crud.custom}
-#{/crud.form}
+	
+    <div class="objectForm">
+    #{form action:@save(object._key()), enctype:'multipart/form-data'}
+        #{crud.form /}
         <p class="crudButtons">
             <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
             <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
