@@ -5,7 +5,6 @@ import play.test.*;
 import models.*;
 
 public class BatimentTest extends UnitTest{
-
 	
 	@Test
     public void nomBatiment( ) {
@@ -14,6 +13,7 @@ public class BatimentTest extends UnitTest{
         assertNotSame(bat.nom_bat.trim(), "");
     }
 	
+
 	@Test
     public void latitudeNullBatiment( ) {
 		

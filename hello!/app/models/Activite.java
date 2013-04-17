@@ -1,26 +1,26 @@
 package models;
 
 import java.util.*;
+
 import javax.persistence.*;
+
 import play.db.jpa.*;
 
 @Entity
-@AttributeOverride(name = "id", column = @Column(name = "num_activite"))
+@AttributeOverride(name = "id", column = @Column(name = "num_act"))
 public class Activite extends Model {
-	
-	//@ManyToOne
-	//public Batiment batiment;
-	public String description;
 
-	public Activite(String description) {
-		super();
-		this.description = description;
+	public String libelle;
+	
+	@OneToMany(mappedBy = "activite")
+	public List<Batiment_Activite> batiments = new ArrayList<Batiment_Activite>();
+	
+	public Activite(String libelle) {
+		this.libelle = libelle;
 	}
 	
-//	public Activite(Batiment batiment, String description) {
-//		this.batiment = batiment;
-//		this.description = description;
-//	}
-	
-	
+	@Override
+	public String toString(){
+		return this.libelle;
+	}
 }
