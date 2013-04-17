@@ -1,9 +1,7 @@
 package models;
 
 import java.util.*;
-
 import javax.persistence.*;
-
 import play.db.jpa.*;
 
 @Entity
@@ -14,13 +12,17 @@ public class Batiment extends Model {
 	public double longitude;
 	public double latitude;
 	
-	@OneToMany
-	public List<Activite> activites;
+	@OneToMany(mappedBy = "batiment")
+	public List<Batiment_Activite> activites = new ArrayList<Batiment_Activite>();
 	
 	public Batiment(String nom_bat, double longitude, double latitude) {
 		this.nom_bat = nom_bat;
 		this.longitude = longitude;
 		this.latitude = latitude;
-	}
+	}	
 	
+	@Override
+	public String toString(){
+		return this.nom_bat;
+	}
 }

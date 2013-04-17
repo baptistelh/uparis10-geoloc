@@ -8,7 +8,7 @@ public class TestActivite extends UnitTest {
 
     @Test
     public void nameNotNullTest() {
-    	assertNotNull(a.description);
+    	assertNotNull(a.libelle);
     }
     
     
