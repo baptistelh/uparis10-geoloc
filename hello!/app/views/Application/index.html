@@ -33,12 +33,14 @@
 	}).addTo(map);
 	var marker = L.marker([48.903003, 2.215518]).addTo(map);
 	//marker.bindPopup("<b>1er marqueur (ouvert au chargement)</b>").openPopup();
-	marker.bindPopup(
-		"<b>B&acirc;timent G</b>"+
-		"<br/>UFR SEGMI"+
-		"<br/><br/>"+
-		"<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>"
-			).openPopup();
+	marker.bindPopup($("<b>B&acirc;timent G</b>")
+			.append("<br/>UFR SEGMI")
+			.append("<br/><br/>")
+			.append("<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
+			.click(function() {
+				$('#details').modal('show');
+		 	})[0]).openPopup();
+	
 	var marker2 = L.marker([48.903173, 2.213418]).addTo(map);
 	marker2.bindPopup("<b>${u.mail}</b>");
 	
@@ -60,7 +62,10 @@
      }).resize();
      
 	//Affichage de la fenêtre de détail lors du clic sur le bouton
- 	$("button[id=detailsButton]").click(function () {
+ 	/*
+	$("#detailsButton").click(function () {
  		$('#details').modal('show');
+ 		debugger;
  	});
+	*/
 </script>
