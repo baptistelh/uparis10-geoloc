@@ -5,21 +5,37 @@
 
     <h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
     
-	<div id="map" style="height:180px;width:180px;"></div>
-	    <script type="text/javascript">
+	<div id="map" style="height:250px;width:350px;"></div>
+ <script type="text/javascript">
 	var map = L.map('map', {
 	    center: [48.904, 2.2135],
-	    zoom: 17
+	    zoom: 16
 	});
 	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		attribution: 'Map data &copy; OpenStreetMap contributors - <a href="http://www.hostedredmine.com/projects/geoloc-upo">Our Redmine</a>, proudly powered by <a href="http://www.hostedredmine.com">Hosted Redmine</a>',
 	    maxZoom: 19
 	}).addTo(map);
-	</script>
+	var marker = L.marker([48.903003, 2.215518],{draggable: true}).addTo(map);
+	
+	marker.update();
+</script>
 	
     <div class="objectForm">
     #{form action:@save(object._key()), enctype:'multipart/form-data'}
-        #{crud.form /}
+<!--         #{crud.form /} -->
+      
+      #{crud.form}
+    #{crud.custom 'latitude'}
+        <label for="latitude">
+            &{'latitude'}
+        </label>
+        <input  id="object_latitude" type="text" name="object.latitude" value="49.0" size="5" />
+       	    <script type="text/javascript">
+       	 document.forms.elements["object.latitude"].value="NOUVEAU";
+	    </script>
+    #{/crud.custom}
+#{/crud.form}  
+        
+        
         <p class="crudButtons">
             <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
             <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
