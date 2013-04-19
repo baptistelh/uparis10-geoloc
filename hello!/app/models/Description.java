@@ -21,6 +21,7 @@ public class Description extends Model {
 		this.clef = clef;
 		this.valeur = valeur;
 		this.batiment_activite = batiment_activite;
+		batiment_activite.descriptions.add(this);
 	}
 	
 	@Override
