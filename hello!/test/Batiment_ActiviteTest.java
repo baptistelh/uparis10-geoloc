@@ -11,6 +11,7 @@ import org.junit.Test;
 
 public class Batiment_ActiviteTest {
 
+	@Test
 	public void batimentNull(){
 		Batiment b=new Batiment("batiment G", 2, 48.3);
 		Activite a = new Activite("miage");
@@ -18,6 +19,7 @@ public class Batiment_ActiviteTest {
 		assertNotNull(ba.batiment);	
 	}
 	
+	@Test
 	public void activiteNull(){
 		Batiment b=new Batiment("batiment G", 2, 48.3);
 		Activite a = new Activite("miage");
@@ -25,6 +27,7 @@ public class Batiment_ActiviteTest {
 		assertNotNull(ba.activite);	
 	}
 	
+	@Test
 	public void descriptionsNull(){
 		Batiment b=new Batiment("batiment G", 2, 48.3);
 		Activite a = new Activite("miage");
