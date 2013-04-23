@@ -9,6 +9,7 @@ import play.db.jpa.*;
 public class UFR extends Model {
 
 	public String nom_UFR;
+	public String url_UFR;
 
 	
 	@OneToMany(mappedBy = "ufr")
