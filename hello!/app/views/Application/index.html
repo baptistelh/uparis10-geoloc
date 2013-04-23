@@ -1,22 +1,106 @@
-#{extends 'main.html' /}
-#{set title:'Bienvenue sur Geoloc\'UPO' /}
- 
+#{extends 'main.html' /} #{set title:'Bienvenue sur Geoloc\'UPO' /}
+
 <!-- Modal -->
-<div id="details" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="details" class="modal hide fade" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Bâtiment G</h3>
 	</div>
 	<div class="modal-body">
-		<p>L'UFR Segmi regroupe les trois départements d'économie, de gestion, de mathématiques et d'informatique de l'Université Paris Ouest - Nanterre La Défense.</p>
-		<br/>
-		<p>Plus de 4000 étudiants sont inscrits au sein de la soixantaine de formations proposées par l'UFR Segmi. Les cours sont réalisés par une centaine d'enseignants-chercheurs permanents et l'UFR est géré par une équipe administrative d'une trentaine de personnes.</p>
-		<div align="center"><img src="http://www.nanterrelaverte.fr/wp-content/uploads/2012/11/antennes_relais_Bouygues_SFR_batimentG_Nanterre-300x224.jpg" class="thumbnail"></div>
+		<p>L'UFR Segmi regroupe les trois départements d'économie, de
+			gestion, de mathématiques et d'informatique de l'Université Paris
+			Ouest - Nanterre La Défense.</p>
 		<br />
-		<div class="fb-comments" data-href="http://geoloc-upo.servebeer.com/" data-width="470" data-num-posts="10"></div>
+		<p>Plus de 4000 étudiants sont inscrits au sein de la soixantaine
+			de formations proposées par l'UFR Segmi. Les cours sont réalisés
+			par une centaine d'enseignants-chercheurs permanents et l'UFR est
+			géré par une équipe administrative d'une trentaine de personnes.</p>
+		<div align="center">
+			<img
+				src="http://www.nanterrelaverte.fr/wp-content/uploads/2012/11/antennes_relais_Bouygues_SFR_batimentG_Nanterre-300x224.jpg"
+				class="thumbnail">
+		</div>
+		<br />
+		<div class="accordion" id="accordion2">
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse"
+						data-parent="#accordion2" href="#Historique"> Historique </a>
+				</div>
+				<div id="Historique" class="accordion-body collapse">
+					<div class="accordion-inner">
+						Date de Construction : 1968 <br /> Fondateur : Mendras <br />
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse"
+						data-parent="#accordion2" href="#Culturel"> Culturel </a>
+				</div>
+				<div id="Culturel" class="accordion-body collapse">
+					<div class="accordion-inner">
+						Association : Izer <br />
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse"
+						data-parent="#accordion2" href="#Evenementiel"> Evénementiel </a>
+				</div>
+				<div id="Evenementiel" class="accordion-body collapse">
+					<div class="accordion-inner">
+						Expositions : Prototype robot <br /> Débats : Examens reportés <br />
+						Projections de films : Iron Man 3 <br /> Concours : Iphone 5 a
+						gagner <br />
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse"
+						data-parent="#accordion2" href="#Enseignement"> Enseignement </a>
+				</div>
+				<div id="Enseignement" class="accordion-body collapse">
+					<div class="accordion-inner">
+						Les UFR : SEGMI <br /> Les formations : MIAGE, Economie-Gestion <br />
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse"
+						data-parent="#accordion2" href="#OrganisationAdministrative">
+						Organisation Administrative </a>
+				</div>
+				<div id="OrganisationAdministrative" class="accordion-body collapse">
+					<div class="accordion-inner">
+						Directeur : Izer <br /> Directeur adjoint : Izer <br />
+						Responsable administratif : Izer <br /> Secrétariat : Izer <br />
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse"
+						data-parent="#accordion2" href="#Services"> Services </a>
+				</div>
+				<div id="Services" class="accordion-body collapse">
+					<div class="accordion-inner">
+						Covoiturage : Izer <br />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fb-comments" data-href="http://geoloc-upo.servebeer.com/"
+			data-width="470" data-num-posts="10"></div>
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Retour</button>
+		<button class="btn btn-primary" data-dismiss="modal"
+			aria-hidden="true">Retour</button>
 	</div>
 </div>
 
@@ -24,40 +108,47 @@
 
 <script type="text/javascript">
 	var map = L.map('map', {
-	    center: [48.904, 2.2135],
-	    zoom: 17
+		center : [ 48.904, 2.2135 ],
+		zoom : 17
 	});
-	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		attribution: 'Map data &copy; OpenStreetMap contributors - <a href="http://www.hostedredmine.com/projects/geoloc-upo">Our Redmine</a>, proudly powered by <a href="http://www.hostedredmine.com">Hosted Redmine</a>',
-	    maxZoom: 19
-	}).addTo(map);
-	var marker = L.marker([48.903003, 2.215518]).addTo(map);
+	L
+			.tileLayer(
+					'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+					{
+						attribution : 'Map data &copy; OpenStreetMap contributors - <a href="http://www.hostedredmine.com/projects/geoloc-upo">Our Redmine</a>, proudly powered by <a href="http://www.hostedredmine.com">Hosted Redmine</a>',
+						maxZoom : 19
+					}).addTo(map);
+	var marker = L.marker([ 48.903003, 2.215518 ]).addTo(map);
 	//marker.bindPopup("<b>1er marqueur (ouvert au chargement)</b>").openPopup();
-	marker.bindPopup($("<b>B&acirc;timent G</b>")
-			.append("<br/>UFR SEGMI")
-			.append("<br/><br/>")
-			.append("<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
-			.click(function() {
-				$('#details').modal('show');
-		 	})[0]).openPopup();
-	
-	var marker2 = L.marker([48.903173, 2.213418]).addTo(map);
+	marker
+			.bindPopup(
+					$("<b>B&acirc;timent G</b>")
+							.append("<br/>UFR SEGMI")
+							.append("<br/><br/>")
+							.append(
+									"<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
+							.click(function() {
+								$('#details').modal('show');
+							})[0]).openPopup();
+
+	var marker2 = L.marker([ 48.903173, 2.213418 ]).addTo(map);
 	marker2.bindPopup("<b>${u.mail}</b>");
-	
+
 	/* Géolocalisation */
 	//map.locate({setView: true, maxZoom: 16});
-	
 	/* Dimensions de la map selon la prï¿½sence de la menu-bar */
 	$(document).ready(function() {
-        $.ajaxSetup({cache:false});
-        if($(window).width() > 767) {
-        	$('#map').css('height', ($(window).height() - 40));
-        }
-      });
+		$.ajaxSetup({
+			cache : false
+		});
+		if ($(window).width() > 767) {
+			$('#map').css('height', ($(window).height() - 40));
+		}
+	});
 
-     $(window).resize(function () {
-    	 if($(window).width() > 767) {
-         	$('#map').css('height', ($(window).height() - 40));
-         }
-     }).resize();
+	$(window).resize(function() {
+		if ($(window).width() > 767) {
+			$('#map').css('height', ($(window).height() - 40));
+		}
+	}).resize();
 </script>
