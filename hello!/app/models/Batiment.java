@@ -12,8 +12,14 @@ public class Batiment extends Model {
 	public double longitude;
 	public double latitude;
 	
+	
+	@ManyToOne
+	public UFR ufr;
+	
 	@OneToMany(mappedBy = "batiment")
 	public List<Batiment_Activite> activites = new ArrayList<Batiment_Activite>();
+	
+
 	
 	public Batiment(String nom_bat, double longitude, double latitude) {
 		this.nom_bat = nom_bat;
