@@ -137,7 +137,7 @@
 	 #{list items:batimentsList, as:'batiment'}
 		var marker = L.marker([${batiment.latitude}, ${batiment.longitude}]).addTo(map);
 		marker.bindPopup(
-				$("<b>B&acirc;timent ${batiment.nom_bat}</b>")
+				$("<b>${batiment.nom_bat}</b>")
 				.append("<br/><br/>")
 				.append(
 						"<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
@@ -147,9 +147,9 @@
 
 	 #{/list}
 		
-	/* G�olocalisation */
+	/* Géolocalisation */
 	//map.locate({setView: true, maxZoom: 16});
-	/* Dimensions de la map selon la pr�sence de la menu-bar */
+	/* Dimensions de la map selon la présence de la menu-bar */
 	$(document).ready(function() {
 		$.ajaxSetup({
 			cache : false
