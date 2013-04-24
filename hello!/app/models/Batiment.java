@@ -12,8 +12,8 @@ public class Batiment extends Model {
 	public double latitude;
 	public double longitude;	
 	
-//	@ManyToOne
-//	public UFR ufr;
+	@ManyToOne
+	public UFR ufr;
 	
 	@OneToMany(mappedBy = "batiment")
 	public List<Batiment_Activite> activites = new ArrayList<Batiment_Activite>();
