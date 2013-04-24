@@ -1,11 +1,11 @@
 #{extends 'CRUD/layout.html' /}
-#{set title:messages.get('crud.show.title', type.modelName) /}
+#{set title:messages.get('crud.blank.title', type.modelName) /}
 
-<div id="crudShow" class="${type.name}">
+<div id="crudBlank" class="${type.name}">
 
-    <h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
-    
+    <h2 id="crudBlankTitle">&{'crud.blank.title', type.modelName}</h2>
 	<div id="map" style="height:250px;width:350px;"></div>
+	
  <script type="text/javascript">
 	var map = L.map('map', {
 	    center: [48.904, 2.2135],
@@ -26,13 +26,10 @@
 		});
 	});
 </script>
-	
     <div class="objectForm">
-    #{form action:@save(object._key()), enctype:'multipart/form-data'}
-<!--         #{crud.form /} -->
-      
-      #{crud.form}
-    #{crud.custom 'latitude'}
+    #{form action:@create(), enctype:'multipart/form-data'}
+        #{crud.form}
+        #{crud.custom 'latitude'}
         <label for="latitude">
             &{'latitude'}
         </label>
@@ -45,20 +42,14 @@
         </label>
         <input  id="object_longitude" type="text" name="object.longitude" value="" size="8" />
     #{/crud.custom}
-#{/crud.form}  
-        
-        
+    #{/crud.form}  
+    
         <p class="crudButtons">
             <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
             <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+            <input type="submit" name="_saveAndAddAnother" value="&{'crud.saveAndAddAnother', type.modelName}" />
         </p>
     #{/form}
     </div>
-
-    #{form @delete(object._key())}
-        <p class="crudDelete">
-            <input type="submit" value="&{'crud.delete', type.modelName}" />
-        </p>
-    #{/form}
 
 </div>
