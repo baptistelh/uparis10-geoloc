@@ -9,9 +9,8 @@ import play.db.jpa.*;
 public class Batiment extends Model {
 
 	public String nom_bat;
-	public double longitude;
 	public double latitude;
-	
+	public double longitude;	
 	
 	@ManyToOne
 	public UFR ufr;
