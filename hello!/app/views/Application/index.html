@@ -5,18 +5,18 @@
 	aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"
-			aria-hidden="true">�</button>
-		<h3 id="myModalLabel">B�timent G</h3>
+			aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Bâtiment G</h3>
 	</div>
 	<div class="modal-body">
-		<p>L'UFR Segmi regroupe les trois d�partements d'�conomie, de
-			gestion, de math�matiques et d'informatique de l'Universit� Paris
-			Ouest - Nanterre La D�fense.</p>
+		<p>L'UFR Segmi regroupe les trois départements d'économie, de
+			gestion, de mathématiques et d'informatique de l'Université Paris
+			Ouest - Nanterre La Défense.</p>
 		<br />
-		<p>Plus de 4000 �tudiants sont inscrits au sein de la soixantaine
-			de formations propos�es par l'UFR Segmi. Les cours sont r�alis�s
+		<p>Plus de 4000 étudiants sont inscrits au sein de la soixantaine
+			de formations proposées par l'UFR Segmi. Les cours sont réalisés
 			par une centaine d'enseignants-chercheurs permanents et l'UFR est
-			g�r� par une �quipe administrative d'une trentaine de personnes.</p>
+			géré par une équipe administrative d'une trentaine de personnes.</p>
 		<div align="center">
 			<img
 				src="http://www.nanterrelaverte.fr/wp-content/uploads/2012/11/antennes_relais_Bouygues_SFR_batimentG_Nanterre-300x224.jpg"
@@ -49,11 +49,11 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" data-toggle="collapse"
-						data-parent="#accordion2" href="#Evenementiel"> Ev�nementiel </a>
+						data-parent="#accordion2" href="#Evenementiel"> Evénementiel </a>
 				</div>
 				<div id="Evenementiel" class="accordion-body collapse">
 					<div class="accordion-inner">
-						Expositions : Prototype robot <br /> D�bats : Examens report�s <br />
+						Expositions : Prototype robot <br /> Débats : Examens reportés <br />
 						Projections de films : Iron Man 3 <br /> Concours : Iphone 5 a
 						gagner <br />
 					</div>
@@ -79,7 +79,7 @@
 				<div id="OrganisationAdministrative" class="accordion-body collapse">
 					<div class="accordion-inner">
 						Directeur : Izer <br /> Directeur adjoint : Izer <br />
-						Responsable administratif : Izer <br /> Secr�tariat : Izer <br />
+						Responsable administratif : Izer <br /> Secrétariat : Izer <br />
 					</div>
 				</div>
 			</div>
@@ -135,10 +135,9 @@
 	marker2.bindPopup("<b>${batimentsList.size}</b>");*/
 	
 	 #{list items:batimentsList, as:'batiment'}
-		var marker = L.marker([${batiment.longitude}, ${batiment.latitude}]).addTo(map);
+		var marker = L.marker([${batiment.latitude}, ${batiment.longitude}]).addTo(map);
 		marker.bindPopup(
 				$("<b>B&acirc;timent ${batiment.nom_bat}</b>")
-				//.append("<br/>UFR ${batiment.ufr.nom_UFR}")
 				.append("<br/><br/>")
 				.append(
 						"<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
