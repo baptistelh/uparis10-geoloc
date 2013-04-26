@@ -14,10 +14,7 @@ public class Security extends Secure.Security {
     static boolean authenticate(String username, String password) {
     	Utilisateur u = Utilisateur.find("byPseudo","daVay").first();
 
-    	if(username.equals(u.pseudo) && password.equals(u.mdp))
-    		return true;
-    	else
-    		return false;
+    	return (username.equals(u.pseudo) && password.equals(u.mdp));
     }
     
     static void onDisconnected() {
