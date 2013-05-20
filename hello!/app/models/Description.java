@@ -14,14 +14,15 @@ public class Description extends Model {
 	
 	@ManyToOne
 	@JoinColumn(name = "pk_bat_act")
-	public Batiment_Activite batiment_activite;
+	@AttributeOverride(column = @Column, name = "batiment_activite")
+	public BatimentActivite batimentActivite;
 	
 	
-	public Description(String clef, String valeur, Batiment_Activite batiment_activite) {
+	public Description(String clef, String valeur, BatimentActivite batimentActivite) {
 		this.clef = clef;
 		this.valeur = valeur;
-		this.batiment_activite = batiment_activite;
-		batiment_activite.descriptions.add(this);
+		this.batimentActivite = batimentActivite;
+		this.batimentActivite.descriptions.add(this);
 	}
 	
 	@Override

@@ -10,7 +10,7 @@ public class BatimentTest extends UnitTest{
     public void nomBatiment( ) {
 		
 		Batiment bat = new Batiment("batiment G", 14, 13);
-        assertNotSame(bat.nom_bat.trim(), "");
+        assertNotSame(bat.nom.trim(), "");
     }
 	
 

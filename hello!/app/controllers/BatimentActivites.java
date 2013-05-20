@@ -4,5 +4,5 @@ import play.*;
 import play.mvc.*;
 
 @With(Secure.class)
-public class Batiment_Activites extends CRUD {    
+public class BatimentActivites extends CRUD {    
 }

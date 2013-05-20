@@ -13,7 +13,7 @@ public class Activite extends Model {
 	public String libelle;
 	
 	@OneToMany(mappedBy = "activite")
-	public List<Batiment_Activite> batiments = new ArrayList<Batiment_Activite>();
+	public List<BatimentActivite> batiments = new ArrayList<BatimentActivite>();
 	
 	public Activite(String libelle) {
 		this.libelle = libelle;
