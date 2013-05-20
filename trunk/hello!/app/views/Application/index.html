@@ -137,7 +137,7 @@
 	 #{list items:batimentsList, as:'batiment'}
 		var marker = L.marker([${batiment.latitude}, ${batiment.longitude}]).addTo(map);
 		marker.bindPopup(
-				$("<b>${batiment.nom_bat}</b>")
+				$("<b>${batiment.nom}</b>")
 				.append("<br/><br/>")
 				.append(
 						"<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")

@@ -4,18 +4,18 @@ import static org.junit.Assert.*;
 
 import models.Activite;
 import models.Batiment;
-import models.Batiment_Activite;
+import models.BatimentActivite;
 import models.Description;
 
 import org.junit.Test;
 
-public class Batiment_ActiviteTest {
+public class BatimentActiviteTest {
 
 	@Test
 	public void batimentNull(){
 		Batiment b=new Batiment("batiment G", 2, 48.3);
 		Activite a = new Activite("miage");
-		Batiment_Activite ba= new Batiment_Activite(b, a);
+		BatimentActivite ba= new BatimentActivite(b, a);
 		assertNotNull(ba.batiment);	
 	}
 	
@@ -23,7 +23,7 @@ public class Batiment_ActiviteTest {
 	public void activiteNull(){
 		Batiment b=new Batiment("batiment G", 2, 48.3);
 		Activite a = new Activite("miage");
-		Batiment_Activite ba= new Batiment_Activite(b, a);
+		BatimentActivite ba= new BatimentActivite(b, a);
 		assertNotNull(ba.activite);	
 	}
 	
@@ -31,7 +31,7 @@ public class Batiment_ActiviteTest {
 	public void descriptionsNull(){
 		Batiment b=new Batiment("batiment G", 2, 48.3);
 		Activite a = new Activite("miage");
-		Batiment_Activite ba= new Batiment_Activite(b, a);
+		BatimentActivite ba= new BatimentActivite(b, a);
 		Description d= new Description("date de creation", "1936",ba);
 		assertNotNull(ba.descriptions);	
 	}

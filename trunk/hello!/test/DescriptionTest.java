@@ -7,7 +7,7 @@ import models.*;
 
 public class DescriptionTest extends UnitTest{
 	Description d;
-	Batiment_Activite ba;
+	BatimentActivite ba;
 	Batiment b;
 	Activite a;
 	
@@ -15,7 +15,7 @@ public class DescriptionTest extends UnitTest{
 	public void setUp(){
 		b = new Batiment("G", 78, 76);
 		a = new Activite("Historique");
-		ba = new Batiment_Activite(b, a);
+		ba = new BatimentActivite(b, a);
 		d = new Description("date de creation", "1936", ba);
 	}
 	
