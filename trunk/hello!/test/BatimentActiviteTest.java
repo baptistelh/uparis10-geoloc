@@ -38,14 +38,14 @@ public class BatimentActiviteTest extends UnitTest {
 		assertNotNull(ba.descriptions);	
 	}
 	
-	@Test
-	public void testBatiment_Activite() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testBatiment_Activite() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testToString() {
+//		fail("Not yet implemented");
+//	}
 
 }
