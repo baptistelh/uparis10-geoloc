@@ -9,7 +9,9 @@ import models.Description;
 
 import org.junit.Test;
 
-public class BatimentActiviteTest {
+import play.test.UnitTest;
+
+public class BatimentActiviteTest extends UnitTest {
 
 	@Test
 	public void batimentNull(){
@@ -32,7 +34,7 @@ public class BatimentActiviteTest {
 		Batiment b=new Batiment("batiment G", 2, 48.3);
 		Activite a = new Activite("miage");
 		BatimentActivite ba= new BatimentActivite(b, a);
-		Description d= new Description("date de creation", "1936",ba);
+		//Description d= new Description("date de creation", "1936",ba);
 		assertNotNull(ba.descriptions);	
 	}
 	
