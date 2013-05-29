@@ -21,7 +21,7 @@ public class Application extends Controller {
 	    		}
 	    	}
     	}*/
-    	List<Batiment> batimentsList = Batiment.findAll();
+    	List<Batiment> batimentsList = Batiment.findAll(); 	
         render(batimentsList);
     }
 	/*
@@ -30,4 +30,15 @@ public class Application extends Controller {
     	render(u);
     }
     */
+    
+    public static void batimentById(int id) {
+		Batiment b = Batiment.findById((long)id);
+    	render(b);
+    }
+    
+    public static void listeBatiments() {
+    	List<Batiment> blist = Batiment.findAll();
+    	render(blist);
+    }
+    
 }
