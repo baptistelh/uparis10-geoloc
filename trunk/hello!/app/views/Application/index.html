@@ -115,34 +115,18 @@
 		{
 			attribution : 'Map data &copy; OpenStreetMap contributors - <a href="http://www.hostedredmine.com/projects/geoloc-upo">Our Redmine</a>, proudly powered by <a href="http://www.hostedredmine.com">Hosted Redmine</a>',
 			maxZoom : 19
-		}).addTo(map);
-/*	var marker = L.marker([ 48.903003, 2.215518 ]).addTo(map);
-	//marker.bindPopup("<b>1er marqueur (ouvert au chargement)</b>").openPopup();
-	marker
-			.bindPopup(
-					$("<b>B&acirc;timent G</b>")
-							.append("<br/>UFR SEGMI")
-							.append("<br/><br/>")
-							.append(
-									"<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
-							.click(function() {
-								$('#details').modal('show');
-							})[0]).openPopup();
-
-	var marker2 = L.marker([ 48.903173, 2.213418 ]).addTo(map);
-	marker2.bindPopup("<b>${batimentsList.size}</b>");*/
+		}
+	).addTo(map);
 	
 	 #{list items:batimentsList, as:'batiment'}
 		var marker = L.marker([${batiment.latitude}, ${batiment.longitude}]).addTo(map);
 		marker.bindPopup(
-				$("<b>${batiment.nom}</b>")
-				.append("<br/><br/>")
-				.append(
-						"<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
-				.click(function() {
-					$('#details').modal('show');
-				})[0]);
-
+			$("<b>${batiment.nom}</b>")
+			.append("<br/><br/>")
+			.append("<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
+			.click(function() {
+				$('#details').modal('show');
+		})[0]);
 	 #{/list}
 		
 	/* Géolocalisation */
