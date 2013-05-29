@@ -24,6 +24,13 @@
         <!-- Leaflet JS -->
         <script src="@{'/public/leaflet/leaflet.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
+        <!-- iOS capable -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="apple-touch-icon" href="@{'/public/images/ios/icon_57.png'}" />
+		<link rel="apple-touch-icon" sizes="72x72" href="@{'/public/images/ios/icon_72.png'}" />
+		<link rel="apple-touch-icon" sizes="114x114" href="@{'/public/images/ios/icon_114.png'}" />
+		<link rel="apple-touch-icon" sizes="144x144" href="@{'/public/images/ios/icon_144.png'}" />
     </head>
    <body>
 		<!-- Initialisation Facebook -->
