@@ -1,58 +1,83 @@
+import static org.junit.Assert.fail;
+
 import org.junit.*;
 
 import java.util.*;
+
 import play.test.*;
 import models.*;
 
-public class BatimentTest extends UnitTest{
-	
-	@Test
-    public void nomBatiment( ) {
-		
-		Batiment bat = new Batiment("batiment G", 14, 13);
-        assertNotSame(bat.nom.trim(), "");
-    }
-	
+public class BatimentTest extends UnitTest {
+	Batiment bat = new Batiment("bat G", 14, 13);
+
+	@Before
+	public void setUp() {
+		Fixtures.loadModels("data.yml");
+	}
+
+	@After
+	public void tearDown() {
+		Fixtures.deleteAllModels();
+	}
 
 	@Test
-    public void latitudeNullBatiment( ) {
-		
-		Batiment bat = new Batiment("batiment G", 2, 48.3);
-        assertNotNull(bat.latitude);
-    }
-	
+	public void testFieldsNotNull() {
+
+		assertNotNull(bat.nom);
+		assertNotNull(bat.longitude);
+		assertNotNull(bat.latitude);
+	}
+
 	@Test
-    public void latitudeMinBatiment( ) {
-		
-		Batiment bat = new Batiment("batiment G", 2, 48.3);
-        assertTrue(bat.latitude > 48);
-    }
-	
+	public void testToString() {
+		assertEquals("bat G", bat.toString());
+
+	}
+
 	@Test
-    public void latitudeMaxBatiment( ) {
-		
-		Batiment bat = new Batiment("batiment G", 2, 48.3);
-        assertTrue(bat.latitude < 49);
-    }
-	
+	public void testFieldsValue() {
+		assertEquals("bat G", bat.nom);
+		assertTrue(14d == bat.longitude);
+		assertTrue(13d == bat.latitude);
+
+		Batiment b = Batiment.all().first();
+		assertEquals("batA", b.nom);
+		assertTrue(50.4d == b.latitude);
+		assertTrue(54.5d == b.longitude);
+
+	}
+
 	@Test
-    public void longitudeNullBatiment( ) {
-		
-		Batiment bat = new Batiment("batiment G", 2, 48.3);
-        assertNotNull(bat.longitude);
-    }
-	
+	public void testBatimentsValue() {
+		List<Batiment> bat = Batiment.all().fetch();
+		assertEquals(3, bat.size());
+		assertEquals("batA", bat.get(0).nom);
+		assertTrue(50.4d == bat.get(0).latitude);
+		System.out.println(bat.get(0).latitude);
+		assertEquals("batB", bat.get(1).nom);
+		assertTrue(54.6d == bat.get(1).longitude);
+		assertEquals("batC", bat.get(2).nom);
+
+	}
+
 	@Test
-    public void longitudeMinBatiment( ) {
-		
-		Batiment bat = new Batiment("batiment G", 2, 48.3);
-        assertTrue(bat.longitude > 1);
-    }
-	
+	public void testActivite() {
+
+		List<BatimentActivite> activite = BatimentActivite.find("batiment.nom",
+				"batA").fetch();
+		assertEquals(2, activite.size());
+		assertEquals("Sport", activite.get(0).activite.libelle);
+
+	}
+
 	@Test
-    public void longitudeMaxBatiment( ) {
-		
-		Batiment bat = new Batiment("batiment G", 2, 48.3);
-        assertTrue(bat.longitude < 3);
-    }
+	public void testActivites() {
+
+		List<BatimentActivite> activite = BatimentActivite.find("batiment.nom",
+				"batA").fetch();
+		assertEquals(2, activite.size());
+		assertEquals("Sport", activite.get(0).activite.libelle);
+		assertEquals("Cinema", activite.get(1).activite.libelle);
+
+	}
 }
