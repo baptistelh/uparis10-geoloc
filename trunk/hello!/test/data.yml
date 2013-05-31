@@ -9,6 +9,7 @@ Batiment(b):
   latitude: 50.4
   longitude: 54.5
   nom: batA
+  id: 1
 Batiment(b2): 
   latitude: 50.2
   longitude: 54.6
