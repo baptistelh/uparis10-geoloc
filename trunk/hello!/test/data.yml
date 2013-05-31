@@ -1,7 +1,35 @@
 # you describe your data using the YAML notation here
 # and then load them using Fixtures.load("data.yml")
 
- Utilisateur(u):
-   pseudo: daVay
-   mdp: secret
-   mail: davay@gmail.com
+Activite(ac): 
+  libelle: Sport
+Activite(ac2): 
+  libelle: Cinema
+Batiment(b): 
+  latitude: 50.4
+  longitude: 54.5
+  nom: batA
+Batiment(b2): 
+  latitude: 50.2
+  longitude: 54.6
+  nom: batB
+Batiment(b3): 
+  latitude: 50.2
+  longitude: 54.6
+  nom: batC
+BatimentActivite(ba): 
+  activite: ac
+  batiment: b
+BatimentActivite(ba4): 
+  activite: ac2
+  batiment: b
+BatimentActivite(ba2): 
+  activite: ac
+  batiment: b2
+BatimentActivite(ba3): 
+  activite: ac2
+  batiment: b3
+Utilisateur(u): 
+  mail: davay@gmail.com
+  mdp: secret
+  pseudo: daVay
