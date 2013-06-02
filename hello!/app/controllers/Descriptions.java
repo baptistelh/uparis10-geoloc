@@ -13,7 +13,7 @@ public class Descriptions extends CRUD {
 	// ...
 
 	// Will save your object
-	public static void create(Description object, File fileTouilleur) {
+	public static void create(Description object, File photo) {
 
 		/* Get the current type of controller and test it on non-empty */
 		ObjectType type = ObjectType.get(getControllerClass());
@@ -34,11 +34,11 @@ public class Descriptions extends CRUD {
 		/* Save our object into db */
 		object._save();
 
-		notFoundIfNull(fileTouilleur);
+		notFoundIfNull(photo);
 		File newFile = Play
-				.getFile("/public/images/upload" + fileTouilleur.getName());
-		fileTouilleur.renameTo(newFile);
-		fileTouilleur.delete();
+				.getFile("/public/images/upload/" + photo.getName());
+		photo.renameTo(newFile);
+		photo.delete();
 
 		flash.success("Success " + newFile.getAbsolutePath());
 
