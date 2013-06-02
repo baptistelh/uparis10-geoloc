@@ -1,0 +1,10 @@
+{
+  "response": {
+    #{list items:blist, as:'b'}
+    "batiment": {
+      "id": "${b.id}",
+      "nom": "${b.nom}",
+    }
+   #{/list}
+  }
+}

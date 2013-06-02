@@ -2,7 +2,6 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
-
 import java.util.*;
 
 import models.*;
@@ -31,6 +30,20 @@ public class Application extends Controller {
     }
     */
     
+    public static void webservices() {
+    	render();
+    }
+    
+    ///utilisation pour le formulaire
+    public static void batXML(int id) {
+        redirect("/batimentXML/"+id);
+    }
+    
+    public static void batJSON(int id) {
+        redirect("/batimentJSON/"+id);
+    }
+    ///
+    
     public static void batimentById(int id) {
 		Batiment b = Batiment.findById((long)id);
     	render(b);
@@ -41,4 +54,8 @@ public class Application extends Controller {
     	render(blist);
     }
     
+    public static void listeBatimentsId() {
+    	List<Batiment> blist = Batiment.findAll();
+    	render(blist);
+    }
 }

@@ -1,0 +1,8 @@
+<response>
+#{list items:blist, as:'b'}
+  <batiment>
+  	<id>${b.id}</id>
+  	<nom>${b.nom}</nom>
+  </batiment>
+#{/list}
+</response>
