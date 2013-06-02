@@ -4,13 +4,15 @@
 
 # Home page
 GET     /                                       Application.index
+GET     /webservices                            Application.webservices
 
 # WebServices
-GET     /listeBatimentsXML                      Application.listeBatiments(format:'xml')
-GET     /listeBatimentsJSON                     Application.listeBatiments(format:'json')
-GET     /batimentXML/{id}                       Application.batimentById(format:'xml')
-GET     /batimentJSON/{id}                      Application.batimentById(format:'json')
-
+GET     /webservices/listeBatimentsXML          Application.listeBatiments(format:'xml')
+GET     /webservices/listeBatimentsJSON         Application.listeBatiments(format:'json')
+GET     /webservices/batimentXML/{id}           Application.batimentById(format:'xml')
+GET     /webservices/batimentJSON/{id}          Application.batimentById(format:'json')
+GET     /webservices/listeBatimentsIdXML        Application.listeBatimentsId(format:'xml')
+GET     /webservices/listeBatimentsIdJSON       Application.listeBatimentsId(format:'json')
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
