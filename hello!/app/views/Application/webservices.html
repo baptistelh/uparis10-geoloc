@@ -2,23 +2,23 @@
 #{set title:'Geoloc\'UPO' /}
 <br/>
 <br/>
-<a href="/listeBatimentsXML">liste batiments XML</a>
+<a href="/webservices/listeBatimentsXML">liste batiments XML</a>
 <br/>
-<a href="/listeBatimentsJSON">liste batiments JSON</a>
+<a href="/webservices/listeBatimentsJSON">liste batiments JSON</a>
 <br/>
-<a href="/listeBatimentsIdXML">liste batiments id XML</a>
+<a href="/webservices/listeBatimentsIdXML">liste batiments id XML</a>
 <br/>
-<a href="/listeBatimentsIdJSON">liste batiments id JSON</a>
+<a href="/webservices/listeBatimentsIdJSON">liste batiments id JSON</a>
 <br/>
 <br/>
 #{form action:@batXML(), enctype:'multipart/form-data'}
-<label>Batiment par id XML (url : webservices/batimentXML/id )</label>
+<label>Batiment par id XML (url : webservices/batimentXML/(id) )</label>
 <input type="text" name="id"/><br/>
 <input type="submit" value="XML" />
 #{/form}
 
 #{form action:@batJSON(), enctype:'multipart/form-data'}
-<label>Batiment par id JSON (url : webservices/batimentJSON/id )</label>
+<label>Batiment par id JSON (url : webservices/batimentJSON/(id) )</label>
 <input type="text" name="id"/><br/>
 <input type="submit" value="JSON" />
 #{/form}
