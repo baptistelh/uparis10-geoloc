@@ -18,6 +18,7 @@ public class ActiviteTest extends UnitTest {
 
 	@Before
 	public void setUp() {
+		Fixtures.deleteDatabase();
 		Fixtures.loadModels("data.yml");
 	}
 
