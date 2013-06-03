@@ -37,3 +37,7 @@ Utilisateur(u2):
   mail: nazzi@gmail.com
   mdp: topsecret
   pseudo: azel
+Utilisateur(u3): 
+  mail: admin@gmail.com
+  mdp: admin
+  pseudo: admin

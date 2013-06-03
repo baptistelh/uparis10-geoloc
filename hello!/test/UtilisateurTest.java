@@ -52,7 +52,7 @@ public class UtilisateurTest extends UnitTest {
 	public void testUsersFields() {
 
 		List<Utilisateur> users = Utilisateur.all().fetch();
-		assertEquals(2, users.size());
+		assertEquals(3, users.size());
 		assertEquals("davay@gmail.com", users.get(0).mail);
 		assertEquals("azel", users.get(1).pseudo);
 
