@@ -18,11 +18,11 @@ public class Application extends Controller {
     
     ///utilisation pour le formulaire
     public static void batXML(int id) {
-        redirect("/batimentXML/"+id);
+        redirect("/webserices/batimentXML/"+id);
     }
     
     public static void batJSON(int id) {
-        redirect("/batimentJSON/"+id);
+        redirect("/webservices/batimentJSON/"+id);
     }
     ///
     
