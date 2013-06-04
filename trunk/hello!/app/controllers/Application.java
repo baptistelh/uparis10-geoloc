@@ -18,7 +18,7 @@ public class Application extends Controller {
     
     ///utilisation pour le formulaire
     public static void batXML(int id) {
-        redirect("/webserices/batimentXML/"+id);
+        redirect("/webservices/batimentXML/"+id);
     }
     
     public static void batJSON(int id) {
