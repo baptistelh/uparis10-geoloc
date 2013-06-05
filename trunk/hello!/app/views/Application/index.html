@@ -117,17 +117,28 @@
 			maxZoom : 19
 		}
 	).addTo(map);
-	
-	 #{list items:batimentsList, as:'batiment'}
-		var marker = L.marker([${batiment.latitude}, ${batiment.longitude}]).addTo(map);
-		marker.bindPopup(
-			$("<b>${batiment.nom}</b>")
-			.append("<br/><br/>")
-			.append("<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
-			.click(function() {
-				$('#details').modal('show');
-		})[0]);
-	 #{/list}
+	 
+	var id=0;
+	 $.ajax({
+			type: 'GET',
+			url: '/webservices/listeBatimentsXML',
+			dataType: 'xml',
+			success: function(xml) {
+				$(xml).find('response batiment').each(
+					function() {
+						id++;
+						var marker = L.marker([$(this).find('latitude').text(), $(this).find('longitude').text()]).addTo(map);
+						marker.bindPopup(
+							$("<b>"+$(this).find('nom').text()+"</b>")
+							.append("<br/><br/>")
+							.append("<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
+							.click(function() {
+								$('#details').modal('show');
+						})[0]);
+					}
+				);
+			}
+		});
 		
 	/* Géolocalisation */
 	//map.locate({setView: true, maxZoom: 16});
