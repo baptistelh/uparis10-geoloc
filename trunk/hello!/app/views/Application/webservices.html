@@ -2,23 +2,31 @@
 #{set title:'Geoloc\'UPO' /}
 <br/>
 <br/>
-<a href="/webservices/listeBatimentsXML">liste batiments XML</a>
 <br/>
-<a href="/webservices/listeBatimentsJSON">liste batiments JSON</a>
-<br/>
-<a href="/webservices/listeBatimentsIdXML">liste batiments id XML</a>
-<br/>
-<a href="/webservices/listeBatimentsIdJSON">liste batiments id JSON</a>
-<br/>
-<br/>
-#{form action:@batXML(), enctype:'multipart/form-data'}
-<label>Batiment par id XML (url : webservices/batimentXML/(id) )</label>
-<input type="text" name="id"/><br/>
-<input type="submit" value="XML" />
-#{/form}
+<div class="container">
+	<a href="/webservices/listeBatimentsXML"><button class="btn">Liste batiments XML</button></a>
+	<a href="/webservices/listeBatimentsJSON"><button class="btn">Liste batiments JSON</button></a>
+	<a href="/webservices/listeBatimentsIdXML"><button class="btn">Liste batiments id XML</button></a>
+	<a href="/webservices/listeBatimentsIdJSON"><button class="btn">Liste batiments id JSON</button></a>
+	
+	<br/>
+	<br/>
+	
+	<div class="well">
+		#{form action:@batXML(), enctype:'multipart/form-data'}
+		<label>Batiment par id XML</label>
+		<input type="text" name="id"/><br/>
+		<span class="help-block">URL : webservices/batimentXML/(id)</span>
+		<button type="submit" class="btn btn-primary">XML</button>
+		#{/form}
+		
+		#{form action:@batJSON(), enctype:'multipart/form-data'}
+		<label>Batiment par id JSON</label>
+		<input type="text" name="id"/><br/>
+		<span class="help-block">URL : webservices/batimentJSON/(id)</span>
+		<button type="submit" class="btn btn-primary">JSON</button>
+		#{/form}
+	</div>
+</div>
 
-#{form action:@batJSON(), enctype:'multipart/form-data'}
-<label>Batiment par id JSON (url : webservices/batimentJSON/(id) )</label>
-<input type="text" name="id"/><br/>
-<input type="submit" value="JSON" />
-#{/form}
+
