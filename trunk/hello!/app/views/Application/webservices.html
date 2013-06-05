@@ -14,14 +14,14 @@
 	
 	<div class="well">
 		#{form action:@batXML(), enctype:'multipart/form-data'}
-		<label>Batiment par id XML</label>
+		<legend>Batiment par id XML</legend>
 		<input type="text" name="id"/><br/>
 		<span class="help-block">URL : webservices/batimentXML/(id)</span>
 		<button type="submit" class="btn btn-primary">XML</button>
 		#{/form}
 		
 		#{form action:@batJSON(), enctype:'multipart/form-data'}
-		<label>Batiment par id JSON</label>
+		<legend>Batiment par id JSON</legend>
 		<input type="text" name="id"/><br/>
 		<span class="help-block">URL : webservices/batimentJSON/(id)</span>
 		<button type="submit" class="btn btn-primary">JSON</button>
