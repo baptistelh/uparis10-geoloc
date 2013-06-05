@@ -42,78 +42,7 @@
 		  		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 			</div>
 		</div>
-		<br />
-		<div class="accordion" id="accordion2">
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse"
-						data-parent="#accordion2" href="#Historique"> Historique </a>
-				</div>
-				<div id="Historique" class="accordion-body collapse">
-					<div class="accordion-inner">
-						Date de Construction : 1968 <br /> Fondateur : Mendras <br />
-					</div>
-				</div>
-			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse"
-						data-parent="#accordion2" href="#Culturel"> Culturel </a>
-				</div>
-				<div id="Culturel" class="accordion-body collapse">
-					<div class="accordion-inner">
-						Association : Izer <br />
-					</div>
-				</div>
-			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse"
-						data-parent="#accordion2" href="#Evenementiel"> Evénementiel </a>
-				</div>
-				<div id="Evenementiel" class="accordion-body collapse">
-					<div class="accordion-inner">
-						Expositions : Prototype robot <br /> Débats : Examens reportés <br />
-						Projections de films : Iron Man 3 <br /> Concours : Iphone 5 a
-						gagner <br />
-					</div>
-				</div>
-			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse"
-						data-parent="#accordion2" href="#Enseignement"> Enseignement </a>
-				</div>
-				<div id="Enseignement" class="accordion-body collapse">
-					<div class="accordion-inner">
-						Les UFR : SEGMI <br /> Les formations : MIAGE, Economie-Gestion <br />
-					</div>
-				</div>
-			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse"
-						data-parent="#accordion2" href="#OrganisationAdministrative">
-						Organisation Administrative </a>
-				</div>
-				<div id="OrganisationAdministrative" class="accordion-body collapse">
-					<div class="accordion-inner">
-						Directeur : Izer <br /> Directeur adjoint : Izer <br />
-						Responsable administratif : Izer <br /> Secrétariat : Izer <br />
-					</div>
-				</div>
-			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse"
-						data-parent="#accordion2" href="#Services"> Services </a>
-				</div>
-				<div id="Services" class="accordion-body collapse">
-					<div class="accordion-inner">
-						Covoiturage : Izer <br />
-					</div>
-				</div>
-			</div>
+		<div class="accordion" id="myAccordion">
 		</div>
 		<div class="fb-comments" data-href="http://geoloc-upo.servebeer.com/"
 			data-width="470" data-num-posts="10"></div>
@@ -157,6 +86,10 @@
 							.click(function() {
 								$('#details').modal('show');
 								$("#myModalLabel").text(titlePOI);
+								templateAccordion = $('<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#Historique\"> Historique </a></div><div id=\"Historique\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">Date de Construction : 1968 <br /> Fondateur : Mendras <br /></div></div></div>');
+								accordionElement = templateAccordion.clone();
+								accordionElement.appendTo('#myAccordion').text(titleText);
+								MAVAR.appendTo("#myAccordion");
 						})[0]);
 					}
 				);
