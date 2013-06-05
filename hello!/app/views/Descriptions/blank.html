@@ -4,12 +4,27 @@
 <div id="crudBlank" class="${type.name}">
 
     <h2 id="crudBlankTitle">&{'crud.blank.title', type.modelName}</h2>
-	
+	<script type="text/javascript">
+ 	$(document).ready(function() {
+ 		$('input[id=object_file]').change(function() {
+ 			var path = $('input[id=object_file]').val();
+ 			var file = path.split('\\').pop();
+ 			$('input[id=object_clef]').val(file);
+ 		});
+ 		});
+ 	</script>
     <div class="objectForm">
     #{form action:@create(), enctype:'multipart/form-data'}
-        #{crud.form /}
+		#{crud.form}
+        #{crud.custom 'clef'}
+        <label for="clef">
+            &{'clef'}
+        </label>
+        <input  id="object_clef" type="text" name="object.clef" value="" size="25"/>
+    #{/crud.custom}
+       #{/crud.form}  
             <label for="uploadFile">File</label>
-        <input type="file" name="fileTouilleur"/><br/>
+        <input id="object_file" type="file" name="photo"/><br/>
         <p class="crudButtons">
             <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
             <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
