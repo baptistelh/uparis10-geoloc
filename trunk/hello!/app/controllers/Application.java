@@ -16,7 +16,7 @@ public class Application extends Controller {
     	render();
     }
     
-    ///utilisation pour le formulaire
+    //utilisation pour le formulaire
     public static void batXML(int id) {
         redirect("/webservices/batimentXML/"+id);
     }
@@ -24,7 +24,6 @@ public class Application extends Controller {
     public static void batJSON(int id) {
         redirect("/webservices/batimentJSON/"+id);
     }
-    ///
     
     public static void batimentById(int id) {
 		Batiment b = Batiment.findById((long)id);
