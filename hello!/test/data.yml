@@ -5,7 +5,7 @@ Activite(ac):
   libelle: Sport
 Activite(ac2): 
   libelle: Cinema
-Batiment(b): 
+Batiment(b):
   latitude: 50.4
   longitude: 54.5
   nom: batA
@@ -41,3 +41,11 @@ Utilisateur(u3):
   mail: admin@gmail.com
   mdp: admin
   pseudo: admin
+Description(d):
+  clef: film
+  valeur: ff6
+  batimentActivite: ba
+Description(d2):
+  clef: film
+  valeur: ff5
+  batimentActivite: ba
