@@ -1,0 +1,50 @@
+#*{ You can use plain selenium command using the selenium tag }*
+#
+#{fixture delete:'all', load:'data.yml' /}
+#{selenium}
+	clearSession()
+
+    // Open the admin page, and check that no error occured
+    open('/admin')
+    waitForPageToLoad(5000)
+    assertNotTitle('Application error')
+    
+    //On teste la connexion
+    type('username', 'admin')
+	type('password', 'admin')
+	click('signin')
+	waitForPageToLoad(5000)
+	assertTitle('Administration')
+	
+	//On teste le listing des Activites
+	click('link=Activites')
+	waitForPageToLoad(5000)
+	assertTitle('Activites')
+	
+	//On teste la recherche d'une activite
+	type('search', 'Sport')
+	click('//input[@type='submit' and @value='Search']')
+	waitForPageToLoad(5000)
+	assertTextPresent('Sport')
+	
+	//On modifie l'activite Sport par Test
+	click('link=Sport')
+	waitForPageToLoad(5000)	
+	type('object.libelle', 'Test')
+	click('//input[@type='submit' and @value='Save']')
+	waitForPageToLoad(5000)
+	
+	//On verifie dans la recherche qu'il y'a bien Test au lieu de Sport
+	assertTextNotPresent('Sport')
+	type('search', 'Test')
+	click('//input[@type='submit' and @value='Search']')
+	waitForPageToLoad(5000)
+	assertTextPresent('Test')
+	
+	//On essaye de supprimer l'activite Test (ne marchera pas contrainte d'intégrité oblige)
+	click('link=Test')
+	waitForPageToLoad(5000)	
+	click('//input[@type='submit' and @value='Delete Activite']')
+	assertTextPresent('Test')
+	   
+#{/selenium}
