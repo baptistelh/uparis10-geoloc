@@ -1,23 +1,56 @@
 {
-  "response": {
-    #{list items:blist, as:'b'}
-    "batiment": {
-      "id": "${b.id}",
-      "nom": "${b.nom}",
-      "latitude": "${b.latitude}",
-      "longitude": "${b.longitude}",
-      #{list items:b.activites, as:'a'}
-      "activite": {
-        "libelle": "${a.activite.libelle}",
-        #{list items:a.descriptions, as:'abd'}
-        "description": {
-          "cle": "${abd.clef}",
-          "valeur": "${abd.valeur}"
-        }
-        #{/list}
-      }
-     #{/list}
-    }
-   #{/list}
-  }
+	"response": {
+		%{
+			int i = 0;
+		}%
+		#{list items:blist, as:'b'}
+		"batiment": {
+			"id": "${b.id}",
+			"nom": "${b.nom}",
+			"latitude": "${b.latitude}",
+			"longitude": "${b.longitude}"
+			%{
+				if(b.activites.size() > 0) {
+					out.print(",");
+				}
+				int j = 0;
+			}%
+			#{list items:b.activites, as:'a'}
+			"activite": {
+				"libelle": "${a.activite.libelle}"
+				%{
+					if(a.descriptions.size() > 0) {
+						out.print(",");
+					}
+					int k = 0;
+				}%
+				#{list items:a.descriptions, as:'abd'}
+				"description": {
+					"cle": "${abd.clef}",
+					"valeur": "${abd.valeur}"
+				}
+				%{ 
+					k++;
+					if(a.descriptions.size() > k) {
+						out.print(",");
+					}
+				}%
+				#{/list}
+			}
+			%{ 
+				j++;
+				if(b.activites.size() > j) {
+					out.print(",");
+				}
+			}%
+			#{/list}
+		}
+		%{ 
+			i++;
+			if(blist.size() > i) {
+				out.print(",");
+			}
+		}%
+		#{/list}
+	}
 }
