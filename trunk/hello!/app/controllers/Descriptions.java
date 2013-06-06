@@ -14,7 +14,6 @@ public class Descriptions extends CRUD {
 
 	// Will save your object
 	public static void create(Description object, File photo) {
-
 		/* Get the current type of controller and test it on non-empty */
 		ObjectType type = ObjectType.get(getControllerClass());
 		notFoundIfNull(type);
@@ -34,14 +33,14 @@ public class Descriptions extends CRUD {
 		/* Save our object into db */
 		object._save();
 
-		notFoundIfNull(photo);
-		File newFile = Play
-				.getFile("/public/images/upload/" + photo.getName());
-		photo.renameTo(newFile);
-		photo.delete();
-
-		flash.success("Success " + newFile.getAbsolutePath());
-
+		if (photo != null) {
+			notFoundIfNull(photo);
+			File newFile = Play.getFile("/public/images/upload/"
+					+ photo.getName());
+			photo.renameTo(newFile);
+			photo.delete();
+			flash.success("Success " + newFile.getAbsolutePath());
+		}
 		/* Show messages */
 		flash.success(Messages.get("crud.created", type.modelName));
 		if (params.get("_save") != null) {

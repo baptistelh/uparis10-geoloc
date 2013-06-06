@@ -21,13 +21,13 @@
             &{'clef'}
         </label>
         <input  id="object_clef" type="text" name="object.clef" value="" size="25"/>
+        si image, ce champ est rempli automatiquement
     #{/crud.custom}
        #{/crud.form}  
             <label for="uploadFile">File</label>
         <input id="object_file" type="file" name="photo"/><br/>
         <p class="crudButtons">
             <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
-            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
             <input type="submit" name="_saveAndAddAnother" value="&{'crud.saveAndAddAnother', type.modelName}" />
         </p>
     #{/form}
