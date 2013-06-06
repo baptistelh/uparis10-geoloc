@@ -1,10 +1,11 @@
 {
 	"response": {
+	"batiment":[
 		%{
 			int i = 0;
 		}%
 		#{list items:blist, as:'b'}
-		"batiment": {
+		 {
 			"id": "${b.id}",
 			"nom": "${b.nom}",
 			"latitude": "${b.latitude}",
@@ -52,5 +53,5 @@
 			}
 		}%
 		#{/list}
-	}
+	]}
 }
