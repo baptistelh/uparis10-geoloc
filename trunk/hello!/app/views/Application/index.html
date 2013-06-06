@@ -5,7 +5,7 @@
 <div id="details" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"
-			aria-hidden="true">×</button>
+			aria-hidden="true">Ã—</button>
 		<h3 id="myModalLabel">Titre POI</h3>
 	</div>
 	<div class="modal-body">
@@ -62,7 +62,7 @@ function testGeoloc() {
         return;
     }
     navigator.geolocation.watchPosition(
-        // Succ�s
+        // Succ�s
         function (position) {
             var lat = position.coords.latitude;
             var lng = position.coords.longitude;
@@ -102,37 +102,34 @@ function testGeoloc() {
 	
 	
 	 
-	var id=0;
-	 $.ajax({
-			type: 'GET',
-			url: '/webservices/listeBatimentsXML',
-			dataType: 'xml',
-			success: function(xml) {
-				$(xml).find('response batiment').each(
-					function() {
-						id++;
-						var marker = L.marker([$(this).find('latitude').text(), $(this).find('longitude').text()]).addTo(map);
-						var titlePOI = $(this).find('nom').text();
-						marker.bindPopup(
-							$("<b>" + titlePOI + "</b>")
-							.append("<br/><br/>")
-							.append("<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
-							.click(function() {
-								$('#details').modal('show');
-								$("#myModalLabel").text(titlePOI);
-								templateAccordion = $('<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#Historique\"> Historique </a></div><div id=\"Historique\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">Date de Construction : 1968 <br /> Fondateur : Mendras <br /></div></div></div>');
-								accordionElement = templateAccordion.clone();
-								accordionElement.appendTo('#myAccordion').text(titleText);
-								MAVAR.appendTo("#myAccordion");
-						})[0]);
-					}
-				);
-			}
+	
+	
+	$.getJSON('/webservices/listeBatimentsJSON', function(data) {
+		$.each(data.response.batiment, function(keyResponse, batiment) {
+			var marker = L.marker([batiment.latitude, batiment.longitude]).addTo(map);
+			var titlePOI = batiment.nom;
+			marker.bindPopup(
+				$("<b>" + titlePOI + "</b>")
+				.append("<br/><br/>")
+				.append("<button id=\"detailsButton\" class=\"btn btn-small btn-primary\" type=\"button\">En savoir +</button>")
+				.click(function() {
+					$('#details').modal('show');
+					$("#myModalLabel").text(titlePOI);
+					
+					/*
+					templateAccordion = $('<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#Historique\"> Historique </a></div><div id=\"Historique\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">Date de Construction : 1968 <br /> Fondateur : Mendras <br /></div></div></div>');
+					accordionElement = templateAccordion.clone();
+					accordionElement.appendTo('#myAccordion').text(titleText);
+					MAVAR.appendTo("#myAccordion");
+					*/
+			})[0]);
+			
 		});
-		
-	/* Géolocalisation */
+  });
+	
+	/* GÃ©olocalisation */
 	//map.locate({setView: true, maxZoom: 16});
-	/* Dimensions de la map selon la présence de la menu-bar */
+	/* Dimensions de la map selon la prÃ©sence de la menu-bar */
 	$(document).ready(function() {
 		$.ajaxSetup({
 			cache : false
