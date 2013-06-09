@@ -42,10 +42,8 @@
 		  		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 			</div>
 		</div>
-		<div class="accordion" id="myAccordion">
-		</div>
-		<div class="fb-comments" data-href="http://geoloc-upo.servebeer.com/"
-			data-width="470" data-num-posts="10"></div>
+		<div class="accordion" id="myAccordion"></div>
+		<div class="commentaires-facebook"></div>
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-primary" data-dismiss="modal"
@@ -129,6 +127,8 @@ function testGeoloc() {
 						});
 					}
 					$('#myAccordion').append(templateAccordion);
+					$("#commentaires-facebook").append('<div class="fb-comments" data-href="http://geoloc-upo.servebeer.com/' + batiment.id + '" data-width="470" data-num-posts="10"></div>');
+					FB.XFBML.parse($("#commentaires-facebook"));
 			})[0]);
 		});
   });
