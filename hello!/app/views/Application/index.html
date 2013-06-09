@@ -105,7 +105,7 @@ function testGeoloc() {
 	
 	
 	$.getJSON('/webservices/listeBatimentsJSON', function(data) {
-		$.each(data.response.batiment, function(keyResponse, batiment) {
+		$.each(data.response.batiment, function(keyBatiment, batiment) {
 			var marker = L.marker([batiment.latitude, batiment.longitude]).addTo(map);
 			var titlePOI = batiment.nom;
 			marker.bindPopup(
@@ -115,15 +115,21 @@ function testGeoloc() {
 				.click(function() {
 					$('#details').modal('show');
 					$("#myModalLabel").text(titlePOI);
-					
-					/*
-					templateAccordion = $('<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#Historique\"> Historique </a></div><div id=\"Historique\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">Date de Construction : 1968 <br /> Fondateur : Mendras <br /></div></div></div>');
-					accordionElement = templateAccordion.clone();
-					accordionElement.appendTo('#myAccordion').text(titleText);
-					MAVAR.appendTo("#myAccordion");
-					*/
+					$(".accordion-group").remove();
+					var templateAccordion = '';
+					if(typeof batiment.activite != 'undefined') {
+						$.each(batiment.activite, function(keyActivite, activite) {
+							var templateAccordionDescription = '';
+							if(typeof activite.description != 'undefined') {
+								$.each(activite.description, function(keyDescription, description) {
+									templateAccordionDescription += description.cle + ' : ' + description.valeur + '<br />';
+								});
+							}
+							templateAccordion += '<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#myAccordion\" href=\"#'+activite.libelle+'\"> '+activite.libelle+' </a></div><div id=\"'+activite.libelle+'\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">'+templateAccordionDescription+'</div></div></div>';
+						});
+					}
+					$('#myAccordion').append(templateAccordion);
 			})[0]);
-			
 		});
   });
 	
