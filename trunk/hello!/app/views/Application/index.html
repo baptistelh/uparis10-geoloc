@@ -115,7 +115,7 @@ function testGeoloc() {
 											templateAccordionDescription += description.cle + ' : ' + description.valeur + '<br />';
 										}
 									});
-									if(activite.libelle != 'Images'){
+									if(! activite.libelle.match("^Images")){
 										templateAccordion += '<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#myAccordion\" href=\"#'+activite.libelle+'\"> '+activite.libelle+' </a></div><div id=\"'+activite.libelle+'\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">'+templateAccordionDescription+'</div></div></div>';
 									}
 								}
