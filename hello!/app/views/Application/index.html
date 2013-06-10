@@ -123,8 +123,8 @@ function testGeoloc() {
 					}
 					$('#carousel-place').append(templateCarousel);
 					$('#myAccordion').append(templateAccordion);
-					$("#commentaires-facebook").append('<div class="fb-comments" data-href="http://geoloc-upo.servebeer.com/' + batiment.id + '" data-width="470" data-num-posts="10"></div>');
-					//FB.XFBML.parse($("#commentaires-facebook"));
+					$(".commentaires-facebook").append('<fb:comments href="http://geoloc-upo.servebeer.com/webservices/batimentJSON/' + batiment.id + '" width="470" num_posts="10"></fb:comments>');
+					FB.XFBML.parse();
 			})[0]);
 		});
   	});
