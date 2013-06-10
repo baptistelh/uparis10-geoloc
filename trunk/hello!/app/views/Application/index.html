@@ -9,39 +9,7 @@
 		<h3 id="myModalLabel">Titre POI</h3>
 	</div>
 	<div class="modal-body">
-		<div align="center">
-			<div id="myCarousel" class="carousel slide" style="width:300px;">
-		  		<ol class="carousel-indicators">
-		    		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		    		<li data-target="#myCarousel" data-slide-to="1"></li>
-		    		<li data-target="#myCarousel" data-slide-to="2"></li>
-		  		</ol>
-		  		
-		  		<div class="carousel-inner">
-		   			<div class="item active">
-						<img src="http://www.nanterrelaverte.fr/wp-content/uploads/2012/11/antennes_relais_Bouygues_SFR_batimentG_Nanterre-300x224.jpg" alt="">
-						<div class="carousel-caption">
-							<p>Texte de l'image</p>
-						</div>
-					</div>
-		    		<div class="item">
-						<img src="http://www.nanterrelaverte.fr/wp-content/uploads/2012/11/antennes_relais_Bouygues_SFR_batimentG_Nanterre-300x224.jpg" alt="">
-						<div class="carousel-caption">
-							<p>Texte de l'image</p>
-						</div>
-					</div>
-		    		<div class="item">
-		    			<img src="http://www.nanterrelaverte.fr/wp-content/uploads/2012/11/antennes_relais_Bouygues_SFR_batimentG_Nanterre-300x224.jpg" alt="">
-						<div class="carousel-caption">
-							<p>Texte de l'image</p>
-						</div>
-					</div>
-		  		</div>
-		  		
-		  		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-		  		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-			</div>
-		</div>
+		<div id="carousel-place" align="center"></div>
 		<div class="accordion" id="myAccordion"></div>
 		<div class="commentaires-facebook"></div>
 	</div>
@@ -123,6 +91,8 @@ function testGeoloc() {
 					$("#myModalLabel").text(titlePOI);
 					$(".accordion-group").remove();
 					var templateAccordion = '';
+					var templateCarousel ='';
+					var i = 0;
 					if(typeof batiment.activite != 'undefined') {
 						$.each(batiment.activite, function(keyActivite, activite) {
 							var templateAccordionDescription = '';
@@ -131,9 +101,21 @@ function testGeoloc() {
 									templateAccordionDescription += description.cle + ' : ' + description.valeur + '<br />';
 								});
 							}
-							templateAccordion += '<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#myAccordion\" href=\"#'+activite.libelle+'\"> '+activite.libelle+' </a></div><div id=\"'+activite.libelle+'\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">'+templateAccordionDescription+'</div></div></div>';
+							if(activite.libelle == 'Images'){
+								// Affichage carousel
+								if(i == 0) {
+									templateCarousel = $('<div id="myCarousel" class="carousel slide" style="width:300px;"><ol class="carousel-indicators"><li data-target="#myCarousel" data-slide-to="0" class="active"></li></ol><div class="carousel-inner"><div class="item active"></div></div><a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a><a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a></div>');
+								}
+								// Affichage accordéon
+								else {
+								}
+								i++;
+							} else {
+								templateAccordion += '<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#myAccordion\" href=\"#'+activite.libelle+'\"> '+activite.libelle+' </a></div><div id=\"'+activite.libelle+'\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">'+templateAccordionDescription+'</div></div></div>';
+							}
 						});
 					}
+					$('#carousel-place').append()
 					$('#myAccordion').append(templateAccordion);
 					$("#commentaires-facebook").append('<div class="fb-comments" data-href="http://geoloc-upo.servebeer.com/' + batiment.id + '" data-width="470" data-num-posts="10"></div>');
 					FB.XFBML.parse($("#commentaires-facebook"));
