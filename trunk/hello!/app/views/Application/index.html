@@ -76,7 +76,7 @@ function testGeoloc() {
 	
 	
 	 
-	
+	var pathImgUpload = "/public/images/upload/";
 	
 	$.getJSON('/webservices/listeBatimentsJSON', function(data) {
 		$.each(data.response.batiment, function(keyBatiment, batiment) {
@@ -90,38 +90,44 @@ function testGeoloc() {
 					$('#details').modal('show');
 					$("#myModalLabel").text(titlePOI);
 					$(".accordion-group").remove();
+					$("#myCarousel").remove();
 					var templateAccordion = '';
 					var templateCarousel ='';
 					var i = 0;
 					if(typeof batiment.activite != 'undefined') {
 						$.each(batiment.activite, function(keyActivite, activite) {
 							var templateAccordionDescription = '';
-							if(typeof activite.description != 'undefined') {
-								$.each(activite.description, function(keyDescription, description) {
-									templateAccordionDescription += description.cle + ' : ' + description.valeur + '<br />';
-								});
-							}
-							if(activite.libelle == 'Images'){
-								// Affichage carousel
-								if(i == 0) {
-									templateCarousel = $('<div id="myCarousel" class="carousel slide" style="width:300px;"><ol class="carousel-indicators"><li data-target="#myCarousel" data-slide-to="0" class="active"></li></ol><div class="carousel-inner"><div class="item active"></div></div><a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a><a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a></div>');
+								if(typeof activite.description != 'undefined') {
+									// Affichage accordéon
+									$.each(activite.description, function(keyDescription, description) {
+										if(activite.libelle == 'Images'){
+											// Affichage carousel
+											if(i == 0) {
+												templateCarousel = $('<div id="myCarousel" class="carousel slide" style="width:300px;"><ol class="carousel-indicators"><li data-target="#myCarousel" data-slide-to="0" class="active"></li></ol><div class="carousel-inner"><div class="item active"></div></div><a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a><a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a></div>');
+												templateCarousel.find('.carousel-inner').append('<div class="item active"><img src="' + pathImgUpload + description.cle + '" alt=""><div class="carousel-caption"><p>' + description.valeur + '</p></div></div>');
+											}
+											else {
+												templateCarousel.find('.carousel-indicators').append('<li data-target="#myCarousel" data-slide-to="' + i + '"></li>');
+												templateCarousel.find('.carousel-inner').append('<div class="item"><img src="' + pathImgUpload + description.valeur + '" alt=""><div class="carousel-caption"><p>' + description.cle + '</p></div></div>');
+											}
+											i++;
+										} else {
+											templateAccordionDescription += description.cle + ' : ' + description.valeur + '<br />';
+										}
+									});
+									if(activite.libelle != 'Images'){
+										templateAccordion += '<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#myAccordion\" href=\"#'+activite.libelle+'\"> '+activite.libelle+' </a></div><div id=\"'+activite.libelle+'\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">'+templateAccordionDescription+'</div></div></div>';
+									}
 								}
-								// Affichage accordéon
-								else {
-								}
-								i++;
-							} else {
-								templateAccordion += '<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#myAccordion\" href=\"#'+activite.libelle+'\"> '+activite.libelle+' </a></div><div id=\"'+activite.libelle+'\" class=\"accordion-body collapse\"><div class=\"accordion-inner\">'+templateAccordionDescription+'</div></div></div>';
-							}
-						});
+							});
 					}
-					$('#carousel-place').append()
+					$('#carousel-place').append(templateCarousel);
 					$('#myAccordion').append(templateAccordion);
 					$("#commentaires-facebook").append('<div class="fb-comments" data-href="http://geoloc-upo.servebeer.com/' + batiment.id + '" data-width="470" data-num-posts="10"></div>');
-					FB.XFBML.parse($("#commentaires-facebook"));
+					//FB.XFBML.parse($("#commentaires-facebook"));
 			})[0]);
 		});
-  });
+  	});
 	
 	/* GÃ©olocalisation */
 	//map.locate({setView: true, maxZoom: 16});
