@@ -55,8 +55,10 @@
 
 <script type="text/javascript">
 //geoloc
+var cpt = 0;
 function testGeoloc() {
     if (!navigator.geolocation) {
+    	alert("votre navigateur ne supporte pas la geolocalisation");
         return;
     }
     navigator.geolocation.watchPosition(
@@ -64,16 +66,21 @@ function testGeoloc() {
         function (position) {
             var lat = position.coords.latitude;
             var lng = position.coords.longitude;
-            var greenIcon = L.icon({
-                iconUrl: 'public/images/leaf-green.png',
-                shadowUrl: 'public/images/leaf-shadow.png',
-                iconSize:     [38, 95], // size of the icon
-                shadowSize:   [50, 64], // size of the shadow
-                iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-                shadowAnchor: [4, 62],  // the same for the shadow
-                popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-            });
-            var marker2 = L.marker([lat,lng],{icon: greenIcon}).addTo(map);
+//             var greenIcon = L.icon({
+//                 iconUrl: 'public/images/leaf-green.png',
+//                 shadowUrl: 'public/images/leaf-shadow.png',
+//                 iconSize:     [38, 95], // size of the icon
+//                 shadowSize:   [50, 64], // size of the shadow
+//                 iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+//                 shadowAnchor: [4, 62],  // the same for the shadow
+//                 popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+//             });
+           var circle1 =  L.circle([lat, lng], 15).addTo(map);
+           if(cpt > 0) {
+               map.removeLayer(circle1);
+           }
+           cpt++;
+           // var marker2 = L.marker([lat,lng],{icon: greenIcon}).addTo(map);
         },
         // Erreur
         function (error) {
@@ -81,6 +88,7 @@ function testGeoloc() {
         // Configuration
         {
             maximumAge: 60000,
+            enableHighAccuracy: true,
             timeout: 2000
         }
     );
